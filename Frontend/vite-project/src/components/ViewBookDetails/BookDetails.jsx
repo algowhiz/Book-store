@@ -155,9 +155,6 @@ const BookDetails = () => {
                         <p className='mt-4 text-zinc-100 text-2xl md:text-3xl font-semibold'>Price: ${data.price}</p>
                     </div>
                 </div>
-                <footer className='bg-zinc-900 text-zinc-400 py-4 text-center'>
-                    {/* Add your footer content here */}
-                </footer>
             </div>
             
             
