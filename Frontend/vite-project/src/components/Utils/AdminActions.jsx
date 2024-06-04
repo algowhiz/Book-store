@@ -18,7 +18,7 @@ const AdminActions = ({ bookId }) => {
         };
 
         try {
-            const response = await axios.delete(`http://localhost:4000/api/bookstore/delete-book`, { headers });
+            const response = await axios.delete(`https://book-store-12.onrender.com/api/bookstore/delete-book`, { headers });
             console.log('Book deleted successfully:', response.data);
             setShowModal(false); 
             navigate('/all-books'); 
