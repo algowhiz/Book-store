@@ -14,7 +14,7 @@ const Favorites = () => {
     const fetchFavBooks = async () => {
       try {
         const id = localStorage.getItem("id"); // Fetch id from localStorage
-        const response = await axios.get('http://localhost:4000/api/bookstore/get-fav-books', { headers });
+        const response = await axios.get('https://book-store-12.onrender.com/api/bookstore/get-fav-books', { headers });
         if (response.data && response.data.data) {
           setFavBooks(response.data.data); // Ensure correct data extraction
           console.log(response.data.data); // Log the fetched books
