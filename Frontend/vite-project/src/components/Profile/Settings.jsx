@@ -20,13 +20,13 @@ const Settings = () => {
   }
 
    const submitAddress = async () =>{
-    const resp = await axios.put('http://localhost:4000/api/bookstore/update-address',val,{headers:sendHeaders});
+    const resp = await axios.put('https://book-store-12.onrender.com/api/bookstore/update-address',val,{headers:sendHeaders});
     console.log(resp);
    }
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get('http://localhost:4000/api/bookstore/get-user-info', { headers: sendHeaders });
+      const response = await axios.get('https://book-store-12.onrender.com/api/bookstore/get-user-info', { headers: sendHeaders });
       setprofileData(response.data)
       setVal({ address: response.data.address });
     };
