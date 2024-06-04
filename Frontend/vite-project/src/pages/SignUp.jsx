@@ -39,7 +39,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:4000/api/bookstore/sign-up', formData);
+      const response = await axios.post('https://book-store-12.onrender.com/api/bookstore/sign-up', formData);
       setNotification({
         message: 'Sign up successful!',
         type: 'success',
