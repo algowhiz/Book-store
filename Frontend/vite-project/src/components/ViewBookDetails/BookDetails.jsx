@@ -124,34 +124,43 @@ const BookDetails = () => {
     return (
         <>
             {data && (
-                <div className='px-4 md:px-8 lg:px-12 py-8 bg-zinc-900 flex flex-col lg:flex-row'>
-                <div className='bg-zinc-800 rounded px-4 py-12 w-full lg:w-1/2 flex flex-col items-center'>
-                    <div className='flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8'>
-                        <img src={data.url} alt="Logo" className='w-full lg:w-auto lg:h-[70vh] h-[50vh] rounded' />
-                        {isLogin && role === "user" && (
-                            <UserActions
-                                heartColor={heartColor}
-                                cartColor={cartColor}
-                                handleFavoriteToggle={handleFavoriteToggle}
-                                handleCartToggle={handleCartToggle}
-                            />
-                        )}
-                        {isLogin && role === "admin" && (
-                            <AdminActions bookId={data._id}/>
-                        )}
+                <div className='min-h-screen flex flex-col'>
+                <div className='flex-grow px-4 md:px-8 lg:px-12 py-8 bg-zinc-900 flex flex-col lg:flex-row'>
+                    <div className='bg-zinc-800  p-16 rounded px-4 py-12 w-full lg:w-1/2 flex flex-col items-center justify-center'>
+                        <div className='flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8 w-full'>
+                            <img src={data.url} alt="Logo" className='w-full lg:w-auto lg:max-h-[50vh] h-auto max-h-[40vh] rounded object-cover' />
+                            <div className='flex flex-col items-center lg:items-start gap-4'>
+                                {isLogin && role === "user" && (
+                                    <UserActions
+                                        heartColor={heartColor}
+                                        cartColor={cartColor}
+                                        handleFavoriteToggle={handleFavoriteToggle}
+                                        handleCartToggle={handleCartToggle}
+                                    />
+                                )}
+                                {isLogin && role === "admin" && (
+                                    <AdminActions bookId={data._id}/>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                    <div className='p-4 w-full lg:w-1/2 flex flex-col justify-center'>
+                        <h1 className='text-3xl md:text-4xl text-zinc-300 font-semibold'>{data.title}</h1>
+                        <p className='text-zinc-400 mt-1 text-base md:text-lg'>{data.author}</p>
+                        <p className='text-zinc-400 mt-4 text-lg md:text-xl'>{data.desc}</p>
+                        <p className='text-zinc-400 flex mt-4 items-center text-base md:text-lg'>
+                            <GrLanguage className='mr-3' />
+                            {data.language}
+                        </p>
+                        <p className='mt-4 text-zinc-100 text-2xl md:text-3xl font-semibold'>Price: ${data.price}</p>
                     </div>
                 </div>
-                <div className='p-4 w-full lg:w-1/2'>
-                    <h1 className='text-4xl text-zinc-300 font-semibold'>{data.title}</h1>
-                    <p className='text-zinc-400 mt-1'>{data.author}</p>
-                    <p className='text-zinc-400 mt-4 text-xl'>{data.desc}</p>
-                    <p className='text-zinc-400 flex mt-4 items-center'>
-                        <GrLanguage className='mr-3' />
-                        {data.language}
-                    </p>
-                    <p className='mt-4 text-zinc-100 text-3xl font-semibold'>Price: ${data.price}</p>
-                </div>
+                <footer className='bg-zinc-900 text-zinc-400 py-4 text-center'>
+                    {/* Add your footer content here */}
+                </footer>
             </div>
+            
+            
             )}
         </>
     );
