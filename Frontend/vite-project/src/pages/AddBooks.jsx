@@ -28,7 +28,7 @@ const AddBooks = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:4000/api/bookstore/add-book', bookData, { headers });
+            const response = await axios.post('https://book-store-12.onrender.com/api/bookstore/add-book', bookData, { headers });
             console.log('Book added successfully:', response.data);
             setImageUrl('');
             setTitle('');
