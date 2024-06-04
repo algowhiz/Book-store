@@ -18,7 +18,7 @@ const AllOrders = () => {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get('http://localhost:4000/api/bookstore/get-all-order', {
+        const response = await axios.get('https://book-store-12.onrender.com/api/bookstore/get-all-order', {
           headers: { authorization: `Bearer ${token}` },
         });
         setOrders(response.data.data);
@@ -35,7 +35,7 @@ const AllOrders = () => {
   const updateOrderStatus = async (orderId, status) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.put(`http://localhost:4000/api/bookstore/update-status/${orderId}`, { status }, {
+      const response = await axios.put(`https://book-store-12.onrender.com/api/bookstore/update-status/${orderId}`, { status }, {
         headers: { authorization: `Bearer ${token}` },
       });
 
