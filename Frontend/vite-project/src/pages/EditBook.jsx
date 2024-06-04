@@ -17,7 +17,7 @@ const EditBook = () => {
         // Fetch book details
         const fetchBookDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/bookstore/get-book-by-id/${bookId}`);
+                const response = await axios.get(`https://book-store-12.onrender.com/api/bookstore/get-book-by-id/${bookId}`);
                 const book = response.data.data;
                 console.log(response.data.data);
                 setImageUrl(book.url || '');
@@ -54,7 +54,7 @@ const EditBook = () => {
         };
 
         try {
-            const response = await axios.put(`http://localhost:4000/api/bookstore/update-book`, bookData, { headers });
+            const response = await axios.put(`https://book-store-12.onrender.com/api/bookstore/update-book`, bookData, { headers });
             console.log('Book updated successfully:', response.data);
             navigate(`/view-book-details/${bookId}`)
         } catch (error) {
