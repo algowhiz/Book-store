@@ -17,7 +17,7 @@ const Cart = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get('http://localhost:4000/api/bookstore/get-user-cart', { headers: sendHeaders });
+      const response = await axios.get('https://book-store-12.onrender.com/api/bookstore/get-user-cart', { headers: sendHeaders });
       setCart(response.data.data);
       const id = response.data.data[0]._id;
       localStorage.setItem('del_id', id);
@@ -28,7 +28,7 @@ const Cart = () => {
 
   const deleteItem = async (itemId) => {
     try {
-      await axios.put(`http://localhost:4000/api/bookstore/remove-from-cart/${itemId}`, {}, { headers: sendHeaders });
+      await axios.put(`https://book-store-12.onrender.com/api/bookstore/remove-from-cart/${itemId}`, {}, { headers: sendHeaders });
       const updatedCart = cart.filter(item => item._id !== itemId);
       setCart(updatedCart);
       calculateTotal(updatedCart);
@@ -45,7 +45,7 @@ const Cart = () => {
   const placeOrder = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:4000/api/bookstore/place-order',
+        'https://book-store-12.onrender.com/api/bookstore/place-order',
         { order: cart },
         { headers: sendHeaders }
       );
